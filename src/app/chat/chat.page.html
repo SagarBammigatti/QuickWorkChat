@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>chat</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    
+    <ion-row>
+      <ion-col size="4" offset="8">         
+          <ion-toggle  color="light"></ion-toggle>
+      </ion-col>
+      <ion-text  > user </ion-text>
+      <ion-text  > bot </ion-text>
+
+    </ion-row>
+   
+   
+   
+    
+  </ion-toolbar>  
+  <script src="base64.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</ion-header>
+<ion-row>
+  <ion-col size="8" >
+      <ion-chip color="warning">
+        <ion-select interface="popover" [(ngModel)]="selected_user">
+          <ion-item *ngFor="let list of orgData" >
+            <ion-select-option value="{{list}}" color="warning">{{list}}</ion-select-option>
+          </ion-item>
+      </ion-select>
+      </ion-chip>
+  </ion-col>
+  <ion-col size="4">
+    <ion-button>Resolve</ion-button>
+  </ion-col>
+</ion-row>
+
+<ion-content>
+  <ion-grid>
+  
+    <ion-row>
+          
+    <!-- Custom Refresher Content -->
+    <div >
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>    
+    </div>
+
+    </ion-row>
+    
+
+    <ion-text color='medium' class="ion-text-center">
+      <p>User Name {{myid}}</p>
+    </ion-text>
+    
+    
+  </ion-grid>
+<ion-list>
+  <ion-item *ngFor="let msg of sortData" >
+    <ion-col size="2" *ngIf="currentUser !== msg.user">
+      <ion-avatar >
+        <img src="{{otimgsrc}}" >
+      </ion-avatar>
+     
+    </ion-col>
+
+    <ion-col offset="1" size="8" *ngIf="currentUser !== msg.user" class="message other-message">
+      <b>{{msg.user}}</b><br>
+      <span>{{msg.mymsg}}</span>
+      <div class="time ion-text-right"><br>
+      {{msg.createdat | date:'short'}} 
+      </div>
+
+    </ion-col>
+
+    <ion-col offset="1" size="8" *ngIf="currentUser === msg.user" class="message my-message">
+      <b>{{msg.user}}</b><br>
+      <span>{{msg.mymsg}}</span>
+      <div class="time ion-text-right"><br>
+      {{msg.createdat | date:'short'}} </div>
+
+    </ion-col>
+    <ion-col size="2" *ngIf="currentUser === msg.user">
+      <ion-avatar >
+        <img src=" {{cuimgsrc}}" >
+      </ion-avatar>
+    </ion-col>
+
+  </ion-item>
+</ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-row class="ion-align-items-center ion-no-padding">
+      <ion-col size="10">
+       <!-- <textarea autosize maxRows="4" [(ngModel)]="newMsg" class="messsage-input" >
+        </textarea>-->
+
+        <ion-item>
+          <ion-textarea class="message-input" [(ngModel)]="message" clearOnEdit="true"></ion-textarea>
+        </ion-item>
+
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="primary" [disabled]="message === ''" class="msg-button" (click)="sendMessage()">
+          <ion-icon name="ios-send" slot="icon-only">
+
+          </ion-icon>
+
+        </ion-button>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-footer>

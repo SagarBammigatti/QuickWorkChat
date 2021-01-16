@@ -1,0 +1,83 @@
+<!-- <ion-header translucent>
+  <ion-toolbar color="primary" text-center>Welcome {{ email }}
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content fullscreen>
+  <ion-card style="background-color:cornsilk" >
+    <ion-card-content >
+
+ <div class="ion-padding" >
+  <ion-row>
+    <ion-col class="ion-text-center" size-md="3" offset-md="4.5">
+      <ion-text color="primary">
+        <h2>Welcome to Quick Work Chat {{ email }}</h2>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+
+  <div class="ion-padding" >
+    <ion-row>
+      <ion-col class="ion-text-center" size-md="3" offset-md="4.5">
+        <ion-text>
+          <h3>Add New Bot</h3>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+   
+                <form [formGroup]="validations_form"  (ngSubmit)="addbot(validations_form.value)">
+                  <ion-row>
+                    <ion-col size-md="3" offset-md="4.5">
+                      <ion-item>
+                        <ion-label position="floating" color="primary"><h3>Bot Name</h3></ion-label>
+                        <ion-input type="text" formControlName="botname"></ion-input>
+                        <div class="validation-errors">
+                          <ng-container *ngFor="let validation of validation_messages.botname">
+                            <div  class="error-message" *ngIf="validations_form.get('botname').hasError(validation.type) && (validations_form.get('botname').dirty || validations_form.get('botname').touched)">
+                              <ion-icon name="information-circle-outline"></ion-icon> <ion-text color="danger">{{ validation.message }}</ion-text>
+                            </div>
+                          </ng-container>
+                        </div>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size-md="3" offset-md="4.5">
+                          <ion-button color="primary" class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Add Bot</ion-button>
+                    </ion-col>
+                  </ion-row>
+                </form>
+              </div>
+
+  <ion-row>
+    <ion-col class="ion-text-center" size-md="3" offset-md="4.5">
+      <ion-text color="dark">
+        <h2> This is your api key</h2>
+        <h2>{{ apiKey }}</h2>
+      </ion-text>
+    </ion-col>
+  </ion-row>
+ </div>
+    </ion-card-content>
+</ion-card>
+
+
+  
+        <ion-list>
+          <ion-item *ngFor="let bot of botdata" [routerLink]="['/', 'user-home', ''+bot._id+'']" detail>
+            <ion-card >
+              <ion-card-content>
+                <div class="ion-padding" >
+                    <ion-label>
+                          <h2>{{bot.botname}}</h2>
+                          <p>{{bot._id}}</p>
+                    </ion-label>
+                </div>
+                </ion-card-content>
+            </ion-card>
+          </ion-item>
+        </ion-list>
+    
+
+ 
+</ion-content>

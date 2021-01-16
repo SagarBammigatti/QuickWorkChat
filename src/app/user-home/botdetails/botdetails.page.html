@@ -1,0 +1,99 @@
+<!-- <ion-header>
+  <ion-card>
+    <ion-card-content>
+      <ion-toolbar>
+        <ion-button slot="start">
+          <ion-back-button (click)="backButton()"></ion-back-button>
+        </ion-button>
+        <ion-title>Bot Name: {{ botName }}</ion-title>
+      </ion-toolbar>
+    </ion-card-content>
+  </ion-card>
+
+  <br>
+  <br>
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+         
+          <ion-tab-button tab="android-script">
+            <ion-icon name="analytics"></ion-icon>
+            <ion-label>Analytics</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button tab="ios-script">
+            <ion-icon name="person-add" ></ion-icon>
+            <ion-label>Add Agent</ion-label>
+          </ion-tab-button>
+    
+          <ion-tab-button tab="web-script">
+            <ion-icon name="mail"></ion-icon>
+            <ion-label>Send Message</ion-label>
+          </ion-tab-button>
+
+          
+      
+      
+        </ion-tab-bar>
+      </ion-tabs>
+  
+  
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-button fill="clear" slot="start" (click)="backButton()">
+        <!-- <ion-button  (click)="backButton()"></ion-button> -->
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+      <ion-title>Bot Name: {{ botName }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+   
+    <ion-tab-button tab="analytics">
+      <ion-icon name="analytics"></ion-icon>
+      <ion-label>Analytics</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="addagent">
+      <ion-icon name="person-add" ></ion-icon>
+      <ion-label>Add Agent</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="sendemail">
+      <ion-icon name="mail"></ion-icon>
+      <ion-label>Send Message</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+
+<!-- <ion-content>
+ 
+
+      <ion-tabs>
+        <ion-tab-bar  slot="bottom">
+          <ion-tab-button tab="android-script">
+            <ion-icon src="/assets/Android_logo_2019.svg"></ion-icon>
+            <ion-label>Android Script</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="ios-script">
+            <ion-icon src="/assets/applelogo.svg"></ion-icon>
+            <ion-label>IOS Script</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="web-script">
+            <ion-icon src="/assets/weblogo.svg"></ion-icon>
+            <ion-label>Web Script</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+ 
+</ion-content> -->

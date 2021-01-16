@@ -1,5 +1,7 @@
 {
   "name": "QuickWorkChat",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,44 @@
+<!-- <ion-header translucent>
+  <ion-toolbar color="primary" text-center>Welcome {{ email }}
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content fullscreen>
+    <ion-card style="background-color:whitesmoke" >
+      <ion-card-content >
+  
+   <div class="ion-padding" >
+    <ion-row>
+      <ion-col class="ion-text-center" size-md="3" offset-md="4.5">
+        <ion-text color="primary">
+          <br>
+          <br>
+          <h2>Analytics</h2>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  
+   </div>
+      </ion-card-content>
+  </ion-card>
+  
+  
+    
+          <ion-list>
+            <ion-item *ngFor="let user of userAnalytics" >
+              <ion-card >
+                <ion-card-content>
+                  <div class="ion-padding" >
+                      <ion-label>
+                            <h2>{{user.usertopic}}</h2>
+                            <p> Number of Conversations: {{ user.count}}</p>
+                      </ion-label>
+                  </div>
+                  </ion-card-content>
+              </ion-card>
+            </ion-item>
+          </ion-list>
+      
+  
+   
+  </ion-content>

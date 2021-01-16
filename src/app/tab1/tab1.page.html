@@ -1,0 +1,24 @@
+
+<ion-content>
+
+
+
+  <ion-searchbar animated [(ngModel)]="searchTerm" placeholder="Search Messages" (ionChange)="setFilteredItems()" >
+ </ion-searchbar>
+ 
+  <ion-item-sliding>
+    
+    <ion-list *ngFor="let user of filterdata">
+      <ion-item routerLink='/chat/{{user.name}}/{{user.usertopic}}'>
+        <ion-avatar slot="start">
+          <img src="/assets/boss.png">
+        </ion-avatar>
+        <ion-label> {{user.name}} </ion-label>
+      </ion-item>
+    </ion-list>
+    
+  </ion-item-sliding>
+  <div>
+    <ion-text>{{mail}}{{token}}</ion-text>
+  </div>
+</ion-content>

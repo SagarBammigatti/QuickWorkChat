@@ -1,0 +1,41 @@
+
+<ion-header translucent>
+  <ion-toolbar color="primary">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <br>
+  <br>
+  <br>
+  <ion-card style="background-color:whitesmoke" >
+    <ion-card-content >
+
+ <div class="ion-padding" >
+
+ <form [formGroup]="validations_form"  (ngSubmit)="onSubmit(validations_form.value)">
+  <ion-row>
+    <ion-col size-md="3" offset-md="4.5">
+      <ion-item>
+        <ion-label position="floating" color="primary"><h3>Enter OTP</h3></ion-label>
+        <ion-input type="otp" formControlName="otp"></ion-input>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.otp">
+            <div  class="error-message" *ngIf="validations_form.get('otp').hasError(validation.type) && (validations_form.get('otp').dirty || validations_form.get('otp').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon> <ion-text color="danger">{{ validation.message }}</ion-text>
+            </div>
+          </ng-container>
+        </div>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-md="3" offset-md="4.5">
+          <ion-button color="primary" class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Login</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+</div>
+</ion-card-content>
+</ion-card>
+</ion-content>

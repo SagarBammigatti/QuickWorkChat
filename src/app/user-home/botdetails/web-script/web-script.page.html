@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-button fill="clear" slot="start" (click)="backButton()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+      <ion-title>Android Script</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-text style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: black;">
+        {{ webScript }}
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "appId": "com.SagarBammigatti.QuickWork",
+  "appName": "Quick Work",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
